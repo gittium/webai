@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Profile</title>
+    <!-- ลิงก์ Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* การตั้งค่าพื้นฐาน */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9; /* ปรับพื้นหลัง */
+            color: #333; /* ข้อความสีเทา */
+        }
+
+        /* ส่วนหัว */
+        .header {
+            background-color: #0060a1; /* สีฟ้าลึกสำหรับส่วนหัว */
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #004a75; /* ปรับสีเส้นขอบ */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .header img {
+            height: 40px;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+        .header img:hover {
+            transform: scale(1.1);
+        }
+        .header .menu {
+            display: flex;
+            gap: 20px;
+        }
+        .header .menu a {
+            text-decoration: none;
+            font-size: 16px;
+            color: #fff; /* ปรับสีข้อความในเมนู */
+            padding: 10px 15px;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .header .menu a:hover {
+            background-color: #313131; /* สีพื้นหลังเมื่อ hover */
+            color: #fff;
+        }
+
+        /* การ์ด */
+        .content {
+            max-width: 1200px;
+            margin: 30px auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        /* การ์ดโปรไฟล์ */
+        .profile, .experience, .skills, .interest {
+            width: 100%;
+            max-width: 1000px;
+            background: #ffffff;
+            border: 1px solid #e6e6e6;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile:hover, .experience:hover, .skills:hover, .interest:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ไอคอนแก้ไข */
+        .edit-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: transparent;
+            color: #0073b1; /* ปรับสีไอคอน */
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+        .edit-btn:hover {
+            color: #004a75; /* ปรับสีเมื่อ hover */
+            transform: scale(1.2);
+        }
+
+        /* การจัดเรียงเนื้อหาภายใน */
+        .profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid #ddd;
+            transition: transform 0.3s ease;
+        }
+        .profile img:hover {
+            transform: scale(1.1);
+        }
+        .profile h1, .experience h1, .skills h1, .interest h1 {
+            font-size: 26px;
+            font-weight: bold;
+            color: #0060a1; /* ปรับสีหัวข้อ */
+        }
+        .profile p, .experience p, .skills p, .interest p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555555;
+            text-align: justify;
+        }
+
+        /* เพิ่ม Gradient ให้ปุ่ม */
+        .profile-actions button,
+        .experience-actions button,
+        .skills-actions button,
+        .interest-actions button {
+            padding: 12px 18px;
+            background: linear-gradient(135deg, #0073b1, #005582); /* ปรับสีปุ่ม */
+            color: #ffffff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 15px;
+        }
+        .profile-actions button:hover,
+        .experience-actions button:hover,
+        .skills-actions button:hover,
+        .interest-actions button:hover {
+            background: linear-gradient(135deg, #005582, #003d63);
+            transform: scale(1.05);
+        }
+
+        /* เพิ่มไอคอนในส่วนหัว */
+        .profile h1::before,
+        .experience h1::before,
+        .skills h1::before,
+        .interest h1::before {
+            content: '\f0c0'; /* Font Awesome Icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: #0073b1;
+            margin-right: 10px;
+            font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="picture/csit.png" alt="LinkedIn Logo">
+        <div class="menu">
+            <a href="#">หน้าแรก</a>
+            <a href="#">เครือข่าย</a>
+            <a href="#">งาน</a>
+            <a href="#">ข้อความ</a>
+            <a href="#">การแจ้งเตือน</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="profile">
+            <button class="edit-btn">
+                <i class="fas fa-pencil-alt"></i>
+            </button>
+            <img src="picture/pf.jpg" alt="Profile Picture">
+            <h1>John Smith</h1>
+            <p>เป็นนักศึกษาที่มหาวิทยาลัยนเรศวร</p>
+            <div class="profile-actions">
+                <button>แก้ไขโปรไฟล์</button>
+            </div>
+        </div>
+
+        <div class="experience">
+            <button class="edit-btn">
+                <i class="fas fa-pencil-alt"></i>
+            </button>
+            <h1>ประสบการณ์</h1>
+            <ul>
+                <li><strong>Internship:</strong> Software Developer ที่ ABC Company (2022)</li>
+                <li><strong>โครงการ:</strong> พัฒนาแอปพลิเคชันติดตามเวลา</li>
+                <li><strong>ความสำเร็จ:</strong> ได้รับรางวัล Top Performer ระหว่างฝึกงาน</li>
+            </ul>
+            <div class="experience-actions">
+                <button>เพิ่มประสบการณ์</button>
+            </div>
+        </div>
+
+        <div class="skills">
+            <button class="edit-btn">
+                <i class="fas fa-pencil-alt"></i>
+            </button>
+            <h1>ทักษะ</h1>
+            <ul>
+                <li><i class="fas fa-code"></i> Programming: Java, Python, Dart</li>
+                <li><i class="fas fa-database"></i> Database: MySQL, Firebase</li>
+                <li><i class="fas fa-laptop-code"></i> Frontend: Flutter, React</li>
+            </ul>
+            <div class="skills-actions">
+                <button>เพิ่มทักษะ</button>
+            </div>
+        </div>
+
+        <div class="interest">
+            <button class="edit-btn">
+                <i class="fas fa-pencil-alt"></i>
+            </button>
+            <h1>ความสนใจ</h1>
+            <p>แสดงรายการความสนใจของคุณเพื่อช่วยให้เครือข่ายเข้าใจสิ่งที่คุณชื่นชอบ</p>
+            <div class="interest-actions">
+                <button>เพิ่มความสนใจ</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
